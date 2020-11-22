@@ -13,6 +13,8 @@ public class PokemonBase : ScriptableObject
 
     [SerializeField] Sprite frontSprite;
     [SerializeField] Sprite backSprite;
+    [SerializeField] Sprite shinyFrontSprite;
+    [SerializeField] Sprite shinyBackSprite;
 
     [SerializeField] PokemonType type1;
     [SerializeField] PokemonType type2;
@@ -50,6 +52,16 @@ public class PokemonBase : ScriptableObject
     public Sprite BackSprite
     {
         get { return backSprite; }
+    }
+
+    public Sprite ShinyFrontSprite
+    {
+        get { return shinyFrontSprite; }
+    }
+
+    public Sprite ShinyBackSprite
+    {
+        get { return shinyBackSprite; }
     }
 
     public PokemonType Type1
@@ -134,5 +146,6 @@ public enum PokemonType
     Bug,
     Rock,
     Ghost,
-    Dragon
+    Dragon,
+    Steel
 }

@@ -6,12 +6,17 @@ public class Pokemon
 {
     public PokemonBase Base { get; set; }
     public int level { get; set; }
+    public bool shiny { get; set; }
+
+    Sprite frontSprite;
+    Sprite backSprite;
 
     public List<Move> Moves { get; set; }
 
     public int HP { get; set; }
 
-    public Pokemon(PokemonBase pBase, int pLevel)
+
+    public Pokemon(PokemonBase pBase, int pLevel, bool shiny)
     {
         Base = pBase;
         level = pLevel;
@@ -25,6 +30,16 @@ public class Pokemon
 
             if (Moves.Count >= 4)
                 break;
+        }
+
+        if(shiny)
+        {
+            frontSprite = Base.ShinyFrontSprite;
+            backSprite = Base.ShinyBackSprite;
+        } else
+        {
+            frontSprite = Base.FrontSprite;
+            backSprite = Base.BackSprite;
         }
     }
 
@@ -56,5 +71,15 @@ public class Pokemon
     public int MaxHp
     {
         get { return Mathf.FloorToInt((Base.MaxHp * level) / 100f) + 10; }
+    }
+
+    public Sprite FrontSprite
+    {
+        get { return frontSprite; }
+    }
+
+    public Sprite BackSprite
+    {
+        get { return backSprite; }
     }
 }

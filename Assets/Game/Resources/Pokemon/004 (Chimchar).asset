@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938483ad6058a3d41b36fc9c0404096b, type: 3}
+  m_Name: 004 (Chimchar)
+  m_EditorClassIdentifier: 
+  name: Chimchar
+  id: 4
+  description: It is very agile. before going to sleep, it extinguishes the flame
+    on its tail to prevent fires.
+  frontSprite: {fileID: -6161028024125998408, guid: ceb377de1b7f63f4591cb4ec61b2271c, type: 3}
+  backSprite: {fileID: -6568810900274252725, guid: ceb377de1b7f63f4591cb4ec61b2271c, type: 3}
+  shinyFrontSprite: {fileID: 1382420177397985249, guid: ceb377de1b7f63f4591cb4ec61b2271c, type: 3}
+  shinyBackSprite: {fileID: -6381304136497924440, guid: ceb377de1b7f63f4591cb4ec61b2271c, type: 3}
+  type1: 2
+  type2: 0
+  maxHp: 44
+  attack: 58
+  defense: 44
+  spAttack: 58
+  spDefense: 44
+  speed: 61
+  learnableMoves: []

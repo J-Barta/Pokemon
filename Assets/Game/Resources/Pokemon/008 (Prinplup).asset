@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938483ad6058a3d41b36fc9c0404096b, type: 3}
+  m_Name: 008 (Prinplup)
+  m_EditorClassIdentifier: 
+  name: Prinplup
+  id: 8
+  description: Because every Prinplup considers itself to be the most important,
+    they can never form a group.
+  frontSprite: {fileID: -2470073918326347916, guid: 9a52725d871a2044dae93923c5b789a7, type: 3}
+  backSprite: {fileID: 2552685389026756332, guid: 9a52725d871a2044dae93923c5b789a7, type: 3}
+  shinyFrontSprite: {fileID: 5843139162904421871, guid: 9a52725d871a2044dae93923c5b789a7, type: 3}
+  shinyBackSprite: {fileID: 2801805348377674382, guid: 9a52725d871a2044dae93923c5b789a7, type: 3}
+  type1: 3
+  type2: 0
+  maxHp: 64
+  attack: 66
+  defense: 68
+  spAttack: 81
+  spDefense: 76
+  speed: 50
+  learnableMoves: []

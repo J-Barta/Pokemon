@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938483ad6058a3d41b36fc9c0404096b, type: 3}
+  m_Name: 003 (Torterra)
+  m_EditorClassIdentifier: 
+  name: Torterra
+  id: 3
+  description: Some Pokemon are born on a Torterra's back and spend their entire
+    life there.
+  frontSprite: {fileID: 2937357702063916136, guid: 219a3dc4aa5a9774caa0cd9bca711431, type: 3}
+  backSprite: {fileID: -2719829772158144123, guid: 219a3dc4aa5a9774caa0cd9bca711431, type: 3}
+  shinyFrontSprite: {fileID: -565037137136453548, guid: 219a3dc4aa5a9774caa0cd9bca711431, type: 3}
+  shinyBackSprite: {fileID: 2688099491653886889, guid: 219a3dc4aa5a9774caa0cd9bca711431, type: 3}
+  type1: 5
+  type2: 9
+  maxHp: 95
+  attack: 109
+  defense: 105
+  spAttack: 75
+  spDefense: 85
+  speed: 56
+  learnableMoves: []

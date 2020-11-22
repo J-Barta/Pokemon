@@ -1,11 +1,19 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BattleDialogBox
+    - BattleHUD
+    - BattleSystem
+    - BattleUnit
+    - HPBar
+    - MoveBase
     - PlayerControl
+    - PokemonBase
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
+    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -26,6 +34,14 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
+    - UnityEngine.UI.Image
+    - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -57,8 +73,38 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 600}
     - Class: 114
+      Script: {instanceID: 11820}
+    - Class: 114
+      Script: {instanceID: 12126}
+    - Class: 114
       Script: {instanceID: 12132}
+    - Class: 114
+      Script: {instanceID: 12182}
+    - Class: 114
+      Script: {instanceID: 12290}
+    - Class: 114
+      Script: {instanceID: 12894}
+    - Class: 114
+      Script: {instanceID: 13014}
+    - Class: 114
+      Script: {instanceID: 13110}
+    - Class: 114
+      Script: {instanceID: 14410}
+    - Class: 114
+      Script: {instanceID: 14494}
+    - Class: 114
+      Script: {instanceID: 14764}
+    - Class: 114
+      Script: {instanceID: 14772}
+    - Class: 114
+      Script: {instanceID: 14808}
+    - Class: 114
+      Script: {instanceID: 15136}
+    - Class: 114
+      Script: {instanceID: 32838}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -67,6 +113,12 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     - Class: 19719996
       Script: {instanceID: 0}
@@ -139,7 +191,7 @@ ScriptsOnlyBuild:
     className: Scrollbar
   - hash:
       serializedVersion: 2
-      Hash: d7a26894b46984da253fc48b04b86be3
+      Hash: 506aae74d2480abccceeabdd7fbcc8e8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerControl
@@ -319,6 +371,18 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: d4e41c8ca82a5f1eb50d62839f364db9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BattleUnit
+  - hash:
+      serializedVersion: 2
+      Hash: 2309cd260edc668ef455c71855de854a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BattleSystem
+  - hash:
+      serializedVersion: 2
       Hash: 040dd48e3a027d5424519a5fa2009df4
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -439,6 +503,12 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: fe3417eb6fa326e634ca3f9c8731cbfc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BattleHUD
+  - hash:
+      serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -463,10 +533,28 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
+      Hash: 7dd79ad8a0751824dba8f4930e54ed9e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HPBar
+  - hash:
+      serializedVersion: 2
+      Hash: 27c512fdec08b2d0deef6003a0301bb4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PokemonBase
+  - hash:
+      serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 50e7bc4b1c2ddfa12965e1201963d632
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MoveBase
   - hash:
       serializedVersion: 2
       Hash: a2612813f45d0ced02c3e4bc9dbea8b4
@@ -563,6 +651,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 92d2e0658cabdb3987312822be6acea8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BattleDialogBox
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

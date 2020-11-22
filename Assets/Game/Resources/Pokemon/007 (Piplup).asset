@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938483ad6058a3d41b36fc9c0404096b, type: 3}
+  m_Name: 007 (Piplup)
+  m_EditorClassIdentifier: 
+  name: Piplup
+  id: 7
+  description: A poor walker, it often falls down. However, its strong pride makes
+    it puff up its chest without a care.
+  frontSprite: {fileID: 4205034279796979370, guid: 23a818c7bd9bc714e80b3f580cf9c24b, type: 3}
+  backSprite: {fileID: -2883144470542958828, guid: 23a818c7bd9bc714e80b3f580cf9c24b, type: 3}
+  shinyFrontSprite: {fileID: -5872168837134339029, guid: 23a818c7bd9bc714e80b3f580cf9c24b, type: 3}
+  shinyBackSprite: {fileID: -5341859869876849696, guid: 23a818c7bd9bc714e80b3f580cf9c24b, type: 3}
+  type1: 3
+  type2: 0
+  maxHp: 53
+  attack: 51
+  defense: 53
+  spAttack: 61
+  spDefense: 56
+  speed: 40
+  learnableMoves: []
