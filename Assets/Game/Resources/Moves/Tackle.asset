@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Tackle
   m_EditorClassIdentifier: 
   name: Tackle
-  description: 
+  description: A physical attack in which the user charges and slams into the foe
+    with its whole body.
   type: 1
   power: 40
   accuracy: 100
-  pp: 20
+  pp: 35
