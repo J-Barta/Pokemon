@@ -6,13 +6,8 @@ using DG.Tweening;
 
 public class BattleUnit : MonoBehaviour
 {
-    [SerializeField] PokemonBase Base;
-    [SerializeField] int level;
-    [SerializeField] bool isShiny;
     [SerializeField] bool isPlayerUnit;
     [SerializeField] Image shinyParticles;
-    [SerializeField] Gender gender;
-
     public Pokemon Pokemon { get; set; }
 
     Image image;
@@ -26,9 +21,9 @@ public class BattleUnit : MonoBehaviour
         originalColor = image.color;
     }
 
-    public void Setup()
+    public void Setup(Pokemon pokemon)
     {
-        Pokemon = new Pokemon(Base, level, isShiny, gender);
+        Pokemon = pokemon;
 
         if (isPlayerUnit)
             image.sprite = Pokemon.BackSprite;
@@ -79,7 +74,7 @@ public class BattleUnit : MonoBehaviour
 
     public void PlayShinyAnimation()
     {
-        if(isShiny)
+        if(Pokemon.Shiny)
         {
             var Sequence = DOTween.Sequence();
             Sequence.Append(shinyParticles.DOFade(1f, 0.75f));

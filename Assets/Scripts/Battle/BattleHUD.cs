@@ -18,23 +18,23 @@ public class BattleHUD : MonoBehaviour
     {
         Pokemon = pokemon;
 
-        if (pokemon.Gender == Gender.male)
+        if (Pokemon.Gender == Gender.male)
             battleHUD.sprite = maleSprite;
-        else if (pokemon.Gender == Gender.female)
+        else if (Pokemon.Gender == Gender.female)
             battleHUD.sprite = femaleSprite;
 
-        nameText.text = pokemon.Base.Name;
-        levelText.text = pokemon.level.ToString();
-        hpBar.SetHP((float)pokemon.HP / pokemon.MaxHp);
+        nameText.text = Pokemon.Base.Name;
+        levelText.text = Pokemon.Level.ToString();
+        hpBar.SetHP((float)Pokemon.HP / Pokemon.MaxHp, Pokemon.HP, Pokemon.MaxHp);
     }
 
     public IEnumerator UpdateHP()
     {
-        yield return hpBar.SetHPSmooth((float)Pokemon.HP / Pokemon.MaxHp);
+        yield return hpBar.SetHPSmooth((float)Pokemon.HP / Pokemon.MaxHp, Pokemon.HP, Pokemon.MaxHp);
     }
 
     public void ResetHP()
     {
-        hpBar.SetHP(1f);
+        hpBar.ResetHP(1f);
     }
 }

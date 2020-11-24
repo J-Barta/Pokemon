@@ -2,12 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+
 public class Pokemon
 {
-    public PokemonBase Base { get; set; }
-    public int level { get; set; }
-    public bool shiny { get; set; }
-    public Gender Gender {get; set;}
+    [SerializeField] PokemonBase _base;
+    [SerializeField] int level;
+    [SerializeField] bool shiny;
+    [SerializeField] Gender gender;
+
+
+
+    public PokemonBase Base { get{return _base;}}
+
+    public int Level { get { return level; } }
+    public bool Shiny { get { return shiny; } }
+    public Gender Gender { get { return gender; } }
 
     Sprite frontSprite;
     Sprite backSprite;
@@ -17,12 +27,9 @@ public class Pokemon
     public int HP { get; set; }
 
 
-    public Pokemon(PokemonBase pBase, int pLevel, bool shiny, Gender gender)
+    public void Init()
     {
-        Base = pBase;
-        level = pLevel;
         HP = MaxHp;
-        Gender = gender;
 
         Moves = new List<Move>();
         foreach (var move in Base.LearnableMoves) 

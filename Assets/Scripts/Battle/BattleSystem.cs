@@ -19,18 +19,25 @@ public class BattleSystem : MonoBehaviour
     int CurrentAction;
     int CurrentMove;
 
-    public void StartBattle()
+    PokemonParty playerParty;
+    Pokemon wildPokemon;
+
+    public void StartBattle(PokemonParty playerParty, Pokemon wildPokemon)
     {
+        this.playerParty = playerParty;
+        this.wildPokemon = wildPokemon;
+
         StartCoroutine(SetupBattle());
     }
 
     public IEnumerator SetupBattle()
     {
+
         playerHUD.ResetHP();
         enemyHUD.ResetHP();
 
-        playerUnit.Setup();
-        enemyUnit.Setup();
+        playerUnit.Setup(playerParty.GetHealthyPokemon());
+        enemyUnit.Setup(wildPokemon);
 
         yield return new WaitForSeconds(1f);
 
@@ -82,7 +89,7 @@ public class BattleSystem : MonoBehaviour
         {
             enemyUnit.PlayFaintAnimation();
             yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} fainted!");
-
+            dialogBox.SetDialogText("");
             yield return new WaitForSeconds(2f);
             OnBattleOver(true);
         }
@@ -112,6 +119,7 @@ public class BattleSystem : MonoBehaviour
             yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} fainted!");
 
             yield return new WaitForSeconds(2f);
+            dialogBox.SetDialogText("");
             OnBattleOver(false);
         }
         else
