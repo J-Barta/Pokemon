@@ -5,15 +5,15 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637414381106741412
-    m_Hash: 2245594901
+      ticks: 637417606264610408
+    m_Hash: 1385789116
   m_LockFileStatus:
     m_FilePath: C:/Users/barta/Pokemon/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637415064007762621
+      ticks: 637417607653011765
     m_Hash: 3477169618
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}

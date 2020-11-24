@@ -16,7 +16,6 @@ public class BattleHUD : MonoBehaviour
         Pokemon = pokemon;
 
         nameText.text = pokemon.Base.Name;
-        Debug.Log(pokemon.Base.Name);
         levelText.text = "Lvl " + pokemon.level;
         hpBar.SetHP((float)pokemon.HP / pokemon.MaxHp);
     }
@@ -24,5 +23,10 @@ public class BattleHUD : MonoBehaviour
     public IEnumerator UpdateHP()
     {
         yield return hpBar.SetHPSmooth((float)Pokemon.HP / Pokemon.MaxHp);
+    }
+
+    public void ResetHP()
+    {
+        hpBar.SetHP(1f);
     }
 }

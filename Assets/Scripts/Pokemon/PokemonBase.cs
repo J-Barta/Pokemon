@@ -147,27 +147,42 @@ public enum PokemonType
     Rock,
     Ghost,
     Dragon,
+    Dark,
     Steel
 }
 
-//public class TypeChart() {
+public class TypeChart {
 
-    //float[][] chart =
-    //{
-     //                   NOR FIR   WAT ELE GRA ICE FIG POI GRO FLY PSY BUG ROC GHO
-     ///*NOR*/ new float[]{ 1f, 1f,   1f,1f,1f,1f,1f,1f,1f,1f,1f,1f,0.5f,0f},
-     ///*FIR*/ new float[]{ 1f, 0.5f, 0.5f,1f,2f,2f,1f,1f,1f,1f,1f,2f,0.5f,1f},
-     ///*WAT*/ new float[]{ 1f, 2f,   0.5f,1f,0.5f,1f,1f,1f,2f,1f,1f,1f,2f,1f},
-     ///*ELE*/ new float[]{ 1f, 2f,   0.5f,0.5f,1f,1f,1f,0f,2f,1f,1f,1f,1f,1f},
-     ///*GRA*/ new float[]{ 1f, 0.5f, 2f,1f,0.5f,1f,1f,0.5f,2f,0.5f,1f,0.5f,2f,1f},
-     ///*ICE*/ new float[]{ 1f, 0.5f, 0.5f,1f,2f,0.5f,1f,1f,2f,2f,1f,1f,1f,1f},
-     ///*FIG*/ new float[]{ 2f, 1f,   1f,1f,1f,2f,1f,0.5f,1f,0.5f,0.5f,0.5f,2f,0f},
-     ///*POI*/ new float[]{ 1f, 1f,1f,1f,2f,1f,1f,0.5f,0.5f,1f,1f,1f,0.5f,0.5f},
-     ///*GRO*/ new float[]{ 1f, 2f,1f,2f,0.5f,1f,1f,2f,0f,1f,0.5f,2f,1f,1f},
-     ///*FLY*/ new float[]{ 1f, 1f,1f,0.5f,2f,1f,2f,1f,1f,1f,1f,2f,0.5f,1f},
-     ///*PSY*/ new float[]{ 1f, 1f,1f,1f,1f,1f,2f,2f,1f,1f,0.5f,1f,1f,1f},
-     ///*BUG*/ new float[]{ 1f, 0.5f,1f,1f,2f,1f,0.5f,0.5f,1f,0.5f,2f,1f,1f,0.5f},
-     ///*ROC*/ new float[]{ 1f, 2f,1f,1f,1f,2f,0.5f,1f,0.5f,2f,1f,2f,1f,1f},
-    ///*GHO*/ new float[]{ 0f, 1f,1f,1f,1f,1f,1f,1f,1f,1f,2f,1f,1f,2f},
-    //};
-//}
+    static float[][] chart =
+    {
+       //                       Nor   Fir   Wat   Ele   Gra   Ice   Fig   Poi   Gro   Fly   Psy   Bug   Roc   Gho   Dra   Dar  Ste    
+        /*Normal*/  new float[] {1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   0.5f, 0,    1f,   1f,   0.5f },
+        /*Fire*/    new float[] {1f,   0.5f, 0.5f, 1f,   2f,   2f,   1f,   1f,   1f,   1f,   1f,   2f,   0.5f, 1f,   0.5f, 1f,   2f},
+        /*Water*/   new float[] {1f,   2f,   0.5f, 1f,   0.5f, 1f,   1f,   1f,   2f,   1f,   1f,   1f,   2f,   1f,   0.5f, 1f,   1f},
+        /*Electric*/new float[] {1f,   1f,   2f,   0.5f, 0.5f, 1f,   1f,   1f,   0f,   2f,   1f,   1f,   1f,   1f,   0.5f, 1f,   1f},
+        /*Grass*/   new float[] {1f,   0.5f, 2f,   1f,   0.5f, 1f,   1f,   0.5f, 2f,   0.5f, 1f,   0.5f, 2f,   1f,   0.5f, 1f,   0.5f },
+        /*Ice*/     new float[] {1f,   0.5f, 0.5f, 1f,   2f,   0.5f, 1f,   1f,   2f,   2f,   1f,   1f,   1f,   1f,   2f,   1f,   0.5f},
+        /*Fighting*/new float[] {2f,   1f,   1f,   1f,   1f,   2f,   1f,   0.5f, 1f,   0.5f, 0.5f, 0.5f, 2f,   0f,   1f,   2f,   2f},
+        /*Poison*/  new float[] {1f,   1f,   1f,   1f,   2f,   1f,   1f,   0.5f, 0.5f, 1f,   1f,   1f,   0.5f, 0.5f, 1f,   1f,   0f},
+        /*Ground*/  new float[] {1f,   2f,   1f,   2f,   0.5f, 1f,   1f,   2f,   1f,   0f,   1f,   0.5f, 2f,   1f,   1f,   1f,   2f},
+        /*Flying*/  new float[] {1f,   1f,   1f,   0.5f, 2f,   1f,   2f,   1f,   1f,   1f,   1f,   2f,   0.5f, 1f,   1f,   1f,   0.5f},
+        /*Psychic*/ new float[] {1f,   1f,   1f,   1f,   1f,   1f,   2f,   2f,   1f,   1f,   0.5f, 1f,   1f,   1f,   1f,   0f,   0.5f},
+        /*Bug*/     new float[] {1f,   0.5f, 1f,   1f,   2f,   1f,   0.5f, 0.5f, 1f,   0.5f, 2f,   1f,   1f,   0.5f, 1f,   2f,   0.5f},
+        /*Rock*/    new float[] {1f,   2f,   1f,   1f,   1f,   2f,   0.5f, 1f,   0.5f, 2f,   1f,   2f,   1f,   1f,   1f,   1f,   0.5f },
+        /*Ghost*/   new float[] {0f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   0.5f, 1f,   1f,   2f,   1f,   0.5f, 1f},
+        /*Dragon*/  new float[] {1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   1f,   2f,   1f,   0.5f},
+        /*Dark*/    new float[] {1f,   1f,   1f,   1f,   1f,   1f,   0.5f, 1f,   1f,   1f,   2f,   1f,   1f,   2f,   1f,   0.5f, 1f},
+        /*Steel*/   new float[] {1f,   0.5f, 0.5f, 0.5f, 1f,   2f,   1f,   1f,   1f,   1f,   1f,   2f,   0.5f, 1f,   1f,   1f,   0.5f}
+    };
+
+    public static float GetEffectiveness(PokemonType attackType, PokemonType defenseType)
+    {
+        if (attackType == PokemonType.None || defenseType == PokemonType.None)
+            return 1;
+
+        int row = (int)attackType - 1;
+        int col = (int)defenseType - 1;
+
+        return chart[row][col];
+    }
+}
