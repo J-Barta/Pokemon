@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+sorry
+asdf;lkj
+git[[:space:]]lfs[[:space:]]track[[:space:]]
+ filter=lfs diff=lfs merge=lfs -text
+ filter=lfs diff=lfs merge=lfs -text
+LibraryArtifactDB filter=lfs diff=lfs merge=lfs -text

@@ -8,6 +8,9 @@ public class BattleHUD : MonoBehaviour
     [SerializeField] Text nameText;
     [SerializeField] Text levelText;
     [SerializeField] HPBar hpBar;
+    [SerializeField] Image battleHUD;
+    [SerializeField] Sprite maleSprite;
+    [SerializeField] Sprite femaleSprite;
 
     Pokemon Pokemon;
 
@@ -15,8 +18,13 @@ public class BattleHUD : MonoBehaviour
     {
         Pokemon = pokemon;
 
+        if (pokemon.Gender == Gender.male)
+            battleHUD.sprite = maleSprite;
+        else if (pokemon.Gender == Gender.female)
+            battleHUD.sprite = femaleSprite;
+
         nameText.text = pokemon.Base.Name;
-        levelText.text = "Lvl " + pokemon.level;
+        levelText.text = pokemon.level.ToString();
         hpBar.SetHP((float)pokemon.HP / pokemon.MaxHp);
     }
 

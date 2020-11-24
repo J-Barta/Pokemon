@@ -7,6 +7,7 @@ public class Pokemon
     public PokemonBase Base { get; set; }
     public int level { get; set; }
     public bool shiny { get; set; }
+    public Gender Gender {get; set;}
 
     Sprite frontSprite;
     Sprite backSprite;
@@ -16,11 +17,12 @@ public class Pokemon
     public int HP { get; set; }
 
 
-    public Pokemon(PokemonBase pBase, int pLevel, bool shiny)
+    public Pokemon(PokemonBase pBase, int pLevel, bool shiny, Gender gender)
     {
         Base = pBase;
         level = pLevel;
         HP = MaxHp;
+        Gender = gender;
 
         Moves = new List<Move>();
         foreach (var move in Base.LearnableMoves) 
@@ -124,6 +126,12 @@ public class Pokemon
         int r = Random.Range(0, Moves.Count);
         return Moves[r];
     }
+}
+
+public enum Gender {
+    none,
+    male,
+    female
 }
 
 public class DamageDetails

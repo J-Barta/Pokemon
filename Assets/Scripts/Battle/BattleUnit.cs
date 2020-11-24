@@ -11,6 +11,7 @@ public class BattleUnit : MonoBehaviour
     [SerializeField] bool isShiny;
     [SerializeField] bool isPlayerUnit;
     [SerializeField] Image shinyParticles;
+    [SerializeField] Gender gender;
 
     public Pokemon Pokemon { get; set; }
 
@@ -27,7 +28,7 @@ public class BattleUnit : MonoBehaviour
 
     public void Setup()
     {
-        Pokemon = new Pokemon(Base, level, isShiny);
+        Pokemon = new Pokemon(Base, level, isShiny, gender);
 
         if (isPlayerUnit)
             image.sprite = Pokemon.BackSprite;
