@@ -18,6 +18,7 @@ public class BattleSystem : MonoBehaviour
     BattleState state;
     int CurrentAction;
     int CurrentMove;
+    int escapeAttempts;
 
     PokemonParty playerParty;
     Pokemon wildPokemon;
@@ -120,7 +121,29 @@ public class BattleSystem : MonoBehaviour
 
             yield return new WaitForSeconds(2f);
             dialogBox.SetDialogText("");
-            OnBattleOver(false);
+
+            var nextPokemon = playerParty.GetHealthyPokemon();
+            if (nextPokemon != null)
+            {
+                playerHUD.ResetHP();
+
+                playerUnit.Setup(playerParty.GetHealthyPokemon());
+
+                yield return new WaitForSeconds(1f);
+
+                playerUnit.PlayShinyAnimation();
+
+                playerHUD.SetData(playerUnit.Pokemon);
+
+                dialogBox.SetMoveNames(playerUnit.Pokemon.Moves);
+
+                yield return dialogBox.TypeDialog($"Go {nextPokemon.Base.Name}!");
+
+
+                PlayerAction();
+            }
+            else
+                OnBattleOver(false);
         }
         else
             PlayerAction();
@@ -147,24 +170,24 @@ public class BattleSystem : MonoBehaviour
         {
             HandleMoveSelection();
         }
+        else if (state == BattleState.EnemyMove)
+        {
+
+        }
     }
 
     void HandleActionSelection()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (CurrentAction < 1)
-            {
-                ++CurrentAction;
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (CurrentAction > 0)
-            {
-                --CurrentAction;
-            }
-        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            ++CurrentAction;
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            --CurrentAction;
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+            CurrentAction += 2;
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+            CurrentAction -= 2;
+
+        CurrentAction = Mathf.Clamp(CurrentAction, 0, 3);
 
         dialogBox.UpdateActionSelection(CurrentAction);
 
@@ -173,48 +196,72 @@ public class BattleSystem : MonoBehaviour
             if (CurrentAction == 0)
             {
                 //Fight
-
                 PlayerMove();
             }
             else if (CurrentAction == 1)
             {
-                //Run
+                //Bag
+                
             }
+            else if (CurrentAction == 2)
+            {
+                //Pokemon
+            }
+            else if (CurrentAction == 3)
+            {
+                //Run
+                StartCoroutine(TryPlayerRun());
+            }
+        }
+    }
+
+    public IEnumerator TryPlayerRun()
+    {
+        state = BattleState.Busy;
+        escapeAttempts += 1;
+        bool escape;
+        if (playerUnit.Pokemon.Speed > enemyUnit.Pokemon.Speed)
+            escape = true;
+        else
+        {
+            int escapeNum = ((playerUnit.Pokemon.Speed * 128) / enemyUnit.Pokemon.Speed) + (30 * escapeAttempts) % 256;
+            System.Random r = new System.Random();
+            if (escapeNum > r.Next(0, 256))
+                escape = true;
+            else
+                escape = false;
+        }
+
+        if(escape)
+        {
+            yield return dialogBox.TypeDialog("You escaped successfully!");
+
+            yield return new WaitForSeconds(2f);
+            dialogBox.SetDialogText("");
+            OnBattleOver(false);
+        }
+        else
+        {
+            yield return dialogBox.TypeDialog("You couldn't get away!");
+            yield return new WaitForSeconds(2f);
+            dialogBox.SetDialogText("");
+            state = BattleState.EnemyMove;
         }
     }
 
     void HandleMoveSelection()
     {
-        
-        if (Input.GetKeyDown(KeyCode.DownArrow) && CurrentMove < 2)
-        {
-            Debug.Log("Down");
-            if (CurrentMove == 0)
-                CurrentMove = 2;
-            else
-                CurrentMove = 3;
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && CurrentMove > 1)
-        {
-            Debug.Log("Up");
-            if (CurrentMove == 2)
-                CurrentMove = 0;
-            else
-                CurrentMove = 1;
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && CurrentMove < 3)
-        {
-            Debug.Log("Right");
-            ++CurrentMove;
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && CurrentMove > 0)
-        {
-            Debug.Log("Left");
-            --CurrentMove;
-        }
 
-        if (playerUnit.Pokemon.Moves.Count < 4 && CurrentMove > playerUnit.Pokemon.Moves.Count - 1)
-            CurrentMove = playerUnit.Pokemon.Moves.Count - 1;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            ++CurrentMove;
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            --CurrentMove;
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+            CurrentMove += 2;
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+            CurrentMove -= 2;
+
+        CurrentMove = Mathf.Clamp(CurrentAction, 0, playerUnit.Pokemon.Moves.Count - 1);
 
         dialogBox.UpdateMoveSelection(CurrentMove, playerUnit.Pokemon.Moves[CurrentMove]);
 
