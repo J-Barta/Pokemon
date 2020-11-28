@@ -12,6 +12,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] BattleHUD playerHUD;
     [SerializeField] BattleHUD enemyHUD;
     [SerializeField] BattleDialogBox dialogBox;
+    [SerializeField] PartyScreen partyScreen;
 
     public event Action<bool> OnBattleOver;
 
@@ -48,6 +49,8 @@ public class BattleSystem : MonoBehaviour
         playerHUD.SetData(playerUnit.Pokemon);
         enemyHUD.SetData(enemyUnit.Pokemon);
 
+        partyScreen.Init();
+
         dialogBox.SetMoveNames(playerUnit.Pokemon.Moves);
 
         yield return dialogBox.TypeDialog($"A wild {enemyUnit.Pokemon.Base.Name} appeared!");
@@ -56,10 +59,16 @@ public class BattleSystem : MonoBehaviour
     }
 
     void PlayerAction()
-    {
-        state = BattleState.PlayerAction;
+    { 
         StartCoroutine(dialogBox.TypeDialog("Choose an action:"));
+        state = BattleState.PlayerAction;
         dialogBox.EnableActionSelector(true);
+    }
+
+    void OpenPartyScreen()
+    {
+        partyScreen.SetPartyData(playerParty.Pokemons);
+        partyScreen.gameObject.SetActive(true);
     }
 
     void PlayerMove()
@@ -206,6 +215,7 @@ public class BattleSystem : MonoBehaviour
             else if (CurrentAction == 2)
             {
                 //Pokemon
+                OpenPartyScreen();
             }
             else if (CurrentAction == 3)
             {
@@ -214,6 +224,8 @@ public class BattleSystem : MonoBehaviour
             }
         }
     }
+
+   
 
     public IEnumerator TryPlayerRun()
     {
@@ -270,6 +282,12 @@ public class BattleSystem : MonoBehaviour
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
             StartCoroutine(PerformPlayerMove());
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            dialogBox.EnableMoveSelector(false);
+            dialogBox.EnableDialogText(true);
+            PlayerAction();
         }
     }
 }
