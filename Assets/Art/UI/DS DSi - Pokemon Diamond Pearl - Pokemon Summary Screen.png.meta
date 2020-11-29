@@ -17,6 +17,21 @@ TextureImporter:
   - first:
       213: 5186336837043239853
     second: Selected_First
+  - first:
+      213: -4892917252767331860
+    second: Male
+  - first:
+      213: -4759171560298330188
+    second: Female
+  - first:
+      213: 9172141701841658041
+    second: High_HP
+  - first:
+      213: -6480319564865970080
+    second: Medium_HP
+  - first:
+      213: -4654090066371195101
+    second: Low_HP
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,7 +139,7 @@ TextureImporter:
         width: 256
         height: 192
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -145,7 +160,7 @@ TextureImporter:
         width: 126
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,12 +176,12 @@ TextureImporter:
       name: Unselected_First
       rect:
         serializedVersion: 2
-        x: 385
+        x: 386
         y: 317
-        width: 127
+        width: 126
         height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -187,7 +202,7 @@ TextureImporter:
         width: 128
         height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,9 +221,9 @@ TextureImporter:
         x: 550
         y: 310
         width: 127
-        height: 50
+        height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -216,6 +231,111 @@ TextureImporter:
       bones: []
       spriteID: dab3c79ffd199f740800000000000000
       internalID: 5186336837043239853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Male
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 226
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce94c61beadd81cb0800000000000000
+      internalID: -4892917252767331860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Female
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 201
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7c64b5ea604fdb0800000000000000
+      internalID: -4759171560298330188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: High_HP
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 177
+        width: 48
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0a1df184ef94f70800000000000000
+      internalID: 9172141701841658041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medium_HP
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 203
+        width: 48
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0606621a0b74116a0800000000000000
+      internalID: -6480319564865970080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Low_HP
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 227
+        width: 48
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f45493eb9596fb0800000000000000
+      internalID: -4654090066371195101
       vertices: []
       indices: 
       edges: []

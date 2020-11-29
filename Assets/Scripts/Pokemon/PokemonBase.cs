@@ -15,6 +15,7 @@ public class PokemonBase : ScriptableObject
     [SerializeField] Sprite backSprite;
     [SerializeField] Sprite shinyFrontSprite;
     [SerializeField] Sprite shinyBackSprite;
+    [SerializeField] Sprite miniSprite;
 
     [SerializeField] PokemonType type1;
     [SerializeField] PokemonType type2;
@@ -62,6 +63,11 @@ public class PokemonBase : ScriptableObject
     public Sprite ShinyBackSprite
     {
         get { return shinyBackSprite; }
+    }
+
+    public Sprite MiniSprite
+    {
+        get { return miniSprite; }
     }
 
     public PokemonType Type1

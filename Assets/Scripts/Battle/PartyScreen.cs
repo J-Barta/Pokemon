@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PartyScreen : MonoBehaviour
 {
-    [SerializeField] Text messageText;
     
     PartyMemberUI[] memberSlots;
 
@@ -22,6 +21,9 @@ public class PartyScreen : MonoBehaviour
                 memberSlots[i].SetData(pokemons[i]);
             else
                 memberSlots[i].gameObject.SetActive(false);
+
+            if (i == 0)
+                memberSlots[i].setFirstMemberSlot();
         }
     }
 }

@@ -20,6 +20,7 @@ MonoBehaviour:
   backSprite: {fileID: 890858202302411467, guid: 7d7d176e7c9de9948be96c4194d02940, type: 3}
   shinyFrontSprite: {fileID: -510744133267320318, guid: 7d7d176e7c9de9948be96c4194d02940, type: 3}
   shinyBackSprite: {fileID: -4217504115010253210, guid: 7d7d176e7c9de9948be96c4194d02940, type: 3}
+  miniSprite: {fileID: -4462934061150716624, guid: 41be36374af48f74fb235995dfc4f39f, type: 3}
   type1: 2
   type2: 7
   maxHp: 76
