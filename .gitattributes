@@ -6,3 +6,5 @@ git[[:space:]]lfs[[:space:]]track[[:space:]]
  filter=lfs diff=lfs merge=lfs -text
  filter=lfs diff=lfs merge=lfs -text
 LibraryArtifactDB filter=lfs diff=lfs merge=lfs -text
+*. filter=lfs diff=lfs merge=lfs -text
+Library/ArtifactDB filter=lfs diff=lfs merge=lfs -text
