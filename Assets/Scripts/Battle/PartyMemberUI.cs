@@ -12,10 +12,17 @@ public class PartyMemberUI : MonoBehaviour
     [SerializeField] Image gender;
     [SerializeField] Sprite maleSprite;
     [SerializeField] Sprite femaleSprite;
+
+    [SerializeField] Sprite generalSprite;
     [SerializeField] Sprite firstSprite;
+    [SerializeField] Sprite selectedGeneralSprite;
+    [SerializeField] Sprite selectedFirstSprite;
+
     [SerializeField] Image miniSprite;
 
     Pokemon Pokemon;
+
+    public bool Selected { get; set; }
 
     public void SetData(Pokemon pokemon)
     {
@@ -39,5 +46,31 @@ public class PartyMemberUI : MonoBehaviour
     public void setFirstMemberSlot()
     {
         memberSlot.sprite = firstSprite;
+    }
+
+    public void setSelected(bool selected, int slot)
+    {
+        if(slot == 0)
+        {
+            if (selected == true)
+            {
+                memberSlot.sprite = selectedFirstSprite;
+                Selected = true;
+            }
+            else
+                memberSlot.sprite = firstSprite;
+                
+        } 
+        else
+        {
+            if (selected == true)
+            {
+                memberSlot.sprite = selectedGeneralSprite;
+                Selected = true;
+            }  
+            else
+                memberSlot.sprite = generalSprite;
+                 
+        }
     }
 }

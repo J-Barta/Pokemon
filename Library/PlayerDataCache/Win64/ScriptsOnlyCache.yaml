@@ -5,10 +5,17 @@ ScriptsOnlyBuild:
     - BattleHUD
     - BattleSystem
     - BattleUnit
+    - GameController
     - HPBar
+    - MapArea
     - MoveBase
+    - PartyMemberUI
+    - PartyScreen
     - PlayerControl
     - PokemonBase
+    - PokemonParty
+    DOTween.dll:
+    - DG.Tweening.Core.DOTweenSettings
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
@@ -71,37 +78,49 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 600}
+      Script: {instanceID: 604}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 12126}
+      Script: {instanceID: 11826}
     - Class: 114
-      Script: {instanceID: 12132}
+      Script: {instanceID: 11986}
     - Class: 114
-      Script: {instanceID: 12182}
+      Script: {instanceID: 12030}
     - Class: 114
-      Script: {instanceID: 12290}
+      Script: {instanceID: 12148}
     - Class: 114
-      Script: {instanceID: 12894}
+      Script: {instanceID: 12198}
     - Class: 114
-      Script: {instanceID: 13014}
+      Script: {instanceID: 12308}
     - Class: 114
-      Script: {instanceID: 13110}
+      Script: {instanceID: 12576}
     - Class: 114
-      Script: {instanceID: 14410}
+      Script: {instanceID: 12914}
     - Class: 114
-      Script: {instanceID: 14494}
+      Script: {instanceID: 13036}
     - Class: 114
-      Script: {instanceID: 14764}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 14772}
+      Script: {instanceID: 13548}
     - Class: 114
-      Script: {instanceID: 14808}
+      Script: {instanceID: 13582}
     - Class: 114
-      Script: {instanceID: 15136}
+      Script: {instanceID: 14448}
     - Class: 114
-      Script: {instanceID: 32838}
+      Script: {instanceID: 14532}
+    - Class: 114
+      Script: {instanceID: 14616}
+    - Class: 114
+      Script: {instanceID: 14806}
+    - Class: 114
+      Script: {instanceID: 14814}
+    - Class: 114
+      Script: {instanceID: 14850}
+    - Class: 114
+      Script: {instanceID: 15176}
+    - Class: 114
+      Script: {instanceID: 15180}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -131,6 +150,12 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
+      Hash: 699619b86d9359741a4f58540298c80b
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
+  - hash:
+      serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -155,6 +180,12 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PartyScreen
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -167,6 +198,12 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
+      Hash: b7fb0e65cd00dc3f2a63bf8469d2a986
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MapArea
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -177,12 +214,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 699619b86d9359741a4f58540298c80b
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
   - hash:
       serializedVersion: 2
       Hash: fd8b23ad3c9e81bc85b197495bc510ac
@@ -299,6 +330,12 @@ ScriptsOnlyBuild:
     className: RectMask2D
   - hash:
       serializedVersion: 2
+      Hash: ba6aa9d678d4cbc99451ba252cd497ed
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PartyMemberUI
+  - hash:
+      serializedVersion: 2
       Hash: 6980e81ddc615a861309d2d659cc3760
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -371,13 +408,13 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: d4e41c8ca82a5f1eb50d62839f364db9
+      Hash: ce8db123fad950b4681e6461daee8aa6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BattleUnit
   - hash:
       serializedVersion: 2
-      Hash: 2309cd260edc668ef455c71855de854a
+      Hash: e9bba6090ef12e2f33ecdcb195c82204
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BattleSystem
@@ -407,10 +444,28 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
+      Hash: 704dcd31abc789439bc3f3cd10b58c2b
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenComponent
+  - hash:
+      serializedVersion: 2
+      Hash: 179648033371456981a3c08cb9f47477
+    assemblyName: DOTween.dll
+    namespaceName: DG.Tweening.Core
+    className: DOTweenSettings
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: 92d2e0658cabdb3987312822be6acea8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BattleDialogBox
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -503,7 +558,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: fe3417eb6fa326e634ca3f9c8731cbfc
+      Hash: ff4895a1b4aa0b26ea9164c7f78a0ea3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BattleHUD
@@ -527,19 +582,25 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: 466bb0ea216f375887a63cf0f16202dd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameController
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 7dd79ad8a0751824dba8f4930e54ed9e
+      Hash: e9521eb64192faa70beed231c0672872
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HPBar
   - hash:
       serializedVersion: 2
-      Hash: 27c512fdec08b2d0deef6003a0301bb4
+      Hash: 2a79fdfb309033d90e5d5bc93b6e60e2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PokemonBase
@@ -617,6 +678,12 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: cfd205f7056778dc997dc90a80fb98b0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PokemonParty
+  - hash:
+      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -651,12 +718,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 92d2e0658cabdb3987312822be6acea8
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BattleDialogBox
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

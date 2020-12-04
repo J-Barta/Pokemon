@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Pokemon\PokemonBase.cs" />
     <Compile Include="Assets\Scripts\Pokemon\MoveBase.cs" />
     <Compile Include="Assets\Scripts\Pokemon\PokemonParty.cs" />
+    <Compile Include="Assets\Scripts\Battle\PokemonConfirmBox.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Art\Spirtesheets\Char\NPCs\_REDITS.txt" />
