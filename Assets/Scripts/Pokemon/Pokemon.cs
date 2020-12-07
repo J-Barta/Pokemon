@@ -128,10 +128,10 @@ public class Pokemon
            
     }
 
-    public Move GetRandomMove()
+    public int GetRandomMoveNumber()
     {
         int r = Random.Range(0, Moves.Count);
-        return Moves[r];
+        return r;
     }
 }
 

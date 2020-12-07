@@ -7,6 +7,12 @@ using DG.Tweening;
 public class BattleUnit : MonoBehaviour
 {
     [SerializeField] bool isPlayerUnit;
+
+    public bool IsPlayerUnit
+    {
+        get { return isPlayerUnit; }
+    }
+
     [SerializeField] Image shinyParticles;
     public Pokemon Pokemon { get; set; }
 

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BattleState { Start, PlayerAction, PlayerMove, partyScreen, EnemyMove, Busy}
+public enum BattleState { Start, ActionSelection, MoveSelection, PerformMove, partyScreen, Busy}
 
 public class BattleSystem : MonoBehaviour
 {
@@ -66,7 +66,7 @@ public class BattleSystem : MonoBehaviour
     void PlayerAction()
     { 
         StartCoroutine(dialogBox.TypeDialog("Choose an action:"));
-        state = BattleState.PlayerAction;
+        state = BattleState.ActionSelection;
         dialogBox.EnableActionSelector(true);
     }
 
@@ -77,18 +77,20 @@ public class BattleSystem : MonoBehaviour
         partyScreen.gameObject.SetActive(true);
     }
 
-    void PlayerMove()
+    void MoveSelection()
     {
-        state = BattleState.PlayerMove;
+        state = BattleState.PerformMove;
         dialogBox.EnableDialogText(false);
         dialogBox.EnableActionSelector(false);
         dialogBox.EnableMoveSelector(true);
     }
 
-    IEnumerator PerformPlayerMove()
+    IEnumerator PlayerMove()
     {
         state = BattleState.Busy;
+
         var move = playerUnit.Pokemon.Moves[CurrentMove];
+        playerUnit.Pokemon.Moves[CurrentMove].PP--;
 
         yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} used {playerUnit.Pokemon.Moves[CurrentMove].Base.Name}!");
 
@@ -115,8 +117,11 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyMove()
     {
-        state = BattleState.EnemyMove;
-        var move = enemyUnit.Pokemon.GetRandomMove();
+        state = BattleState.PerformMove;
+
+        int moveNum = enemyUnit.Pokemon.GetRandomMoveNumber();
+        enemyUnit.Pokemon.Moves[moveNum].PP--;
+        var move = enemyUnit.Pokemon.Moves[moveNum];
 
         yield return dialogBox.TypeDialog($"{enemyUnit.Pokemon.Base.Name} used {move.Base.Name}!");
 
@@ -164,6 +169,47 @@ public class BattleSystem : MonoBehaviour
             PlayerAction();
     }
 
+    IEnumerator RunMove(BattleUnit sourceUnit, BattleUnit targetUnit, int moveNum)
+    {
+
+        //Set the proper move and reduce the PP of the move by 1
+        Move move = sourceUnit.Pokemon.Moves[moveNum];
+        sourceUnit.Pokemon.Moves[moveNum].PP--;
+
+        //Tell the player which move is being used
+        yield return dialogBox.TypeDialog($"{sourceUnit.Pokemon.Base.Name} used {sourceUnit.Pokemon.Moves[CurrentMove].Base.Name}!");
+
+        //Play the hit and attack animations.
+        sourceUnit.PlayAttackAnimation();
+        yield return new WaitForSeconds(0.5f);
+        targetUnit.PlayHitAnimation();
+
+        //Apply the damage and update the HP bar
+        var damageDetails = targetUnit.Pokemon.TakeDamage(move, sourceUnit.Pokemon);
+        yield return enemyHUD.UpdateHP();
+        yield return ShowDamageDetails(damageDetails);
+
+        if (damageDetails.Fainted)
+        {
+            //Inform the player that the target unit fainted
+            targetUnit.PlayFaintAnimation();
+            yield return dialogBox.TypeDialog($"{targetUnit.Pokemon.Base.Name} fainted!");
+            yield return new WaitForSeconds(2f);
+        }
+    }
+
+    void CheckForBattleOver(BattleUnit faintedUnit)
+    {
+        if (faintedUnit.IsPlayerUnit)
+        {
+
+        }
+        else
+        {
+            OnBattleOver(true);
+        }
+    }
+
     IEnumerator ShowDamageDetails(DamageDetails damageDetails)
     {
         if (damageDetails.Critical > 1f)
@@ -177,21 +223,17 @@ public class BattleSystem : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (state == BattleState.PlayerAction)
+        if (state == BattleState.ActionSelection)
         {
             HandleActionSelection();
         }
-        else if (state == BattleState.PlayerMove)
+        else if (state == BattleState.MoveSelection)
         {
             HandleMoveSelection();
         }
         else if (state == BattleState.partyScreen)
         {
             HandlePartySelection();
-        }
-        else if (state == BattleState.EnemyMove)
-        {
-
         }
     }
 
@@ -215,7 +257,7 @@ public class BattleSystem : MonoBehaviour
             if (CurrentAction == 0)
             {
                 //Fight
-                PlayerMove();
+                MoveSelection();
             }
             else if (CurrentAction == 1)
             {
@@ -269,7 +311,7 @@ public class BattleSystem : MonoBehaviour
             yield return dialogBox.TypeDialog("You couldn't get away!");
             yield return new WaitForSeconds(2f);
             dialogBox.SetDialogText("");
-            state = BattleState.EnemyMove;
+            state = BattleState.MoveSelection;
         }
     }
 
@@ -293,7 +335,7 @@ public class BattleSystem : MonoBehaviour
         {
             dialogBox.EnableMoveSelector(false);
             dialogBox.EnableDialogText(true);
-            StartCoroutine(PerformPlayerMove());
+            StartCoroutine(PlayerMove());
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
