@@ -157,6 +157,15 @@ public enum PokemonType
     Steel
 }
 
+public enum Stat
+{
+    Attack,
+    Defense,
+    SpAttack,
+    SpDefense,
+    Speed
+}
+
 public class TypeChart {
 
     static float[][] chart =

@@ -1193,8 +1193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUnit: {fileID: 2054139756}
   enemyUnit: {fileID: 1221397189}
-  playerHUD: {fileID: 455358217}
-  enemyHUD: {fileID: 472622187}
   dialogBox: {fileID: 1184448577}
   partyScreen: {fileID: 1445064752}
 --- !u!1 &496287181
@@ -21289,6 +21287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerUnit: 0
+  hud: {fileID: 472622187}
   shinyParticles: {fileID: 1076226440}
 --- !u!114 &1221397190
 MonoBehaviour:
@@ -25073,6 +25072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerUnit: 1
+  hud: {fileID: 455358217}
   shinyParticles: {fileID: 262973679}
 --- !u!1 &2102715438
 GameObject:
